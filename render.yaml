@@ -1,8 +1,8 @@
 databases:
-  - name: mysite_db
+  - name: django_render_db
     region: singapore
     plan: free
-    databaseName: mysite_db
+    databaseName: django_render_db
     user: django_user
 
 services:
