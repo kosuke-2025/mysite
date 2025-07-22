@@ -34,9 +34,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["https://mysite-czd1.onrender.com"]
 
-RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_HOSTNAME)
+# RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+# if RENDER_HOSTNAME:
+#     ALLOWED_HOSTS.append(RENDER_HOSTNAME)
 
 # Application definition
 
