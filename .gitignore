@@ -1,21 +1,7 @@
-# Python
-__pycache__/
-*.pyc
-
-# 仮想環境
-.venv/
-venv/
-env/
-
-# データベース
+myvenv
 db.sqlite3
-*.sqlite3
-
-# 環境変数ファイル
+.vscode
+__pycache__
+*.pyc
+.DS_Store
 .env
-
-# Renderのキャッシュなど
-.render/
-
-# 静的ファイル（collectstaticで生成される）
-staticfiles/
