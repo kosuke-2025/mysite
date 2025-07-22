@@ -1,5 +1,5 @@
 databases:
-  - name: django_render_db
+  - name: mysite_db
     region: singapore
     plan: free
     databaseName: django_render_db
@@ -9,7 +9,7 @@ services:
   - type: web
     name: mysite
     env: python
-    region: japan
+    region: singapore
     buildCommand: './build.sh'
     startCommand: 'gunicorn mysite.wsgi:application'
     plan: free
