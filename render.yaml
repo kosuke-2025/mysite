@@ -7,9 +7,9 @@ databases:
 
 services:
   - type: web
-    name: django_render
+    name: mysite
     env: python
-    region: singapore
+    region: japan
     buildCommand: './build.sh'
     startCommand: 'gunicorn mysite.wsgi:application'
     plan: free
