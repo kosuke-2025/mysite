@@ -1,0 +1,34 @@
+services:
+  # 1. PostgreSQLデータベースの定義
+  - type: psql
+    name: mysite-db       # データベースの名前（任意）
+    plan: free           # 無料プランを使用
+
+  # 2. Django Webサービスの定義
+  - type: web
+    name: mysite-web       # Webサービスの名前（任意）
+    plan: free           # 無料プランを使用
+    env: python          # Python環境
+    
+    # ▼ アプリケーションをビルド（準備）するためのコマンド
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --no-input
+      python manage.py migrate
+      
+    # ▼ アプリケーションを起動するコマンド
+    startCommand: "gunicorn mysite.wsgi:application"
+    
+    # ▼ 環境変数の設定
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: psql
+          name: mysite-db # 上で定義したデータベースを参照
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true # Renderにランダムな値を自動生成させる
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: PYTHON_VERSION # 必要に応じてPythonのバージョンを指定
+        value: 3.11.4

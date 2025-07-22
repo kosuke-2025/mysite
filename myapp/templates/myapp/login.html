@@ -1,0 +1,23 @@
+{% extends "myapp/base.html" %}
+{% block title %}ログイン{% endblock %}
+
+
+{% block content %}
+  <h2>ログイン</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <p><button type="submit">ログイン</button></p>
+    <p><a href="{% url 'myapp:index' %}">TOPへ戻る</a></p>
+  </form>
+
+  {# フォームにエラーがある場合に表示 #}
+  {% if form.errors %}
+    <p style="color: red;">ユーザー名またはパスワードが正しくありません。</p>
+  {% endif %}
+
+  
+{% endblock %}
