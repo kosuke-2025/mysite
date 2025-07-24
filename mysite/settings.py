@@ -32,11 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["mysite-czd1.onrender.com"]
-
-# RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-# if RENDER_HOSTNAME:
-#     ALLOWED_HOSTS.append(RENDER_HOSTNAME)
+ALLOWED_HOSTS = ["mysite-czd1.onrender.com", "127.0.0.1"]
 
 # Application definition
 

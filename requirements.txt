@@ -10,4 +10,3 @@ whitenoise==6.9.0
 django-environ
 python-decouple
 dj-static
-whitenoise
