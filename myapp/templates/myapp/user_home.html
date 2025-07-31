@@ -3,7 +3,13 @@
 
 {% block content %}
 <h1>ホーム</h1>
-<p>{{ user.username }}さんようこそ。</p>
+<p>{{ user.username }} さんようこそ。</p>
+<form action="{% url 'attendance:record_attendance' %}" method="post">
+    {% csrf_token %}
+    {{ form.in_out }} 
+    <button type="submit">更新</button>
+</form>
+<br>
 <form action="{% url 'myapp:logout' %}" method="post" style="display: inline;">
     {% csrf_token %}
     <button type="submit" class="btn btn-link">ログアウト</button>
