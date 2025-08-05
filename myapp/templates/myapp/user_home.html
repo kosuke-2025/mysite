@@ -3,11 +3,15 @@
 
 {% block content %}
 <h1>ホーム</h1>
-<p>{{ user.username }} さんようこそ。</p>
+<p>{{ user.username }} さんようこそ</p>
 <form action="{% url 'attendance:record_attendance' %}" method="post">
     {% csrf_token %}
     {{ form.in_out }} 
+    {{ form.comment}}<br>
     <button type="submit">更新</button>
+    {% if can_view_list %}
+    <a href="{% url 'attendance:attendance_list' %}" style="margin-left: 1rem;">出欠状況一覧を見る</a>
+    {% endif %}
 </form>
 <br>
 <form action="{% url 'myapp:logout' %}" method="post" style="display: inline;">
@@ -15,3 +19,4 @@
     <button type="submit" class="btn btn-link">ログアウト</button>
 </form>
 {% endblock %}
+

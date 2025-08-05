@@ -55,6 +55,10 @@ class UserHomeView(LoginRequiredMixin, DetailView):
         context['form'] = AttendanceForm(instance=attendance)
         context['today'] = today
         context['current_status'] = attendance.get_in_out_display()
+
+        is_registered = attendance.in_out != Attendance.Status.UNREGISTERED
+        
+        context['can_view_list'] = is_registered
         
         return context
 

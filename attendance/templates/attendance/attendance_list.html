@@ -1,0 +1,31 @@
+{% extends "myapp/base.html" %}
+{% block title %}出席状況一覧{% endblock %}
+
+{% block content %}
+  <h1>出欠状況一覧</h1>
+
+  <table border="1" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th style="padding: 8px;">名前</th>
+        <th style="padding: 8px;">登録内容</th>
+        <th style="padding: 8px;">コメント</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in attendance_list %}
+        <tr>
+          <td style="padding: 8px;">{{ record.staff.username }}</td>
+          <td style="padding: 8px;">{{ record.get_in_out_display }}</td>
+          <td style="padding: 8px;">{{ record.comment|default:"-" }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3" style="padding: 8px; text-align: center;">まだ登録がありません。</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<p><a href="{% url 'myapp:user_home' %}">ホームへ戻る</a></p>
+{% endblock %}

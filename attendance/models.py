@@ -24,6 +24,12 @@ class Attendance(models.Model): # クラス名をより一般的な'Attendance'�
         default=Status.UNREGISTERED # デフォルト値を'未登録'に設定
     )
 
+    comment = models.TextField(
+        verbose_name="今日のコメント", 
+        blank=True, # 空欄での保存を許可
+        null=True   # データベースにNULLでの保存を許可
+    )
+
     class Meta:
         db_table = 'attendance'
         # 同じユーザーが同じ日に複数登録できないようにする制約 (★重要)
