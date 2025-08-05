@@ -1,10 +1,10 @@
 {% extends "myapp/base.html" %}
-{% block title %}ユーザ作成{% endblock %}
+{% block title %}サインアップ{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-sm-6">
-        <h1>ユーザー作成</h1>
+        <h1>サインアップ</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form.non_field_errors }}
