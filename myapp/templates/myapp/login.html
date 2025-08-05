@@ -8,7 +8,12 @@
   <form method="post">
     {% csrf_token %}
     
-    {{ form.as_p }}
+    {% for field in form %}
+      <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+      </p>
+    {% endfor %}
     
     <p><button type="submit">ログイン</button></p>
     <p><a href="{% url 'myapp:index' %}">TOPへ戻る</a></p>
