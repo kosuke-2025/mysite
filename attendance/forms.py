@@ -8,7 +8,7 @@ class AttendanceForm(forms.ModelForm):
         fields = ['in_out', 'comment']
         widgets = {
             'in_out': forms.RadioSelect,
-            'comment': forms.Textarea(attrs={'rows': 2, 'placeholder': '今日の独り言…'}),
+            'comment': forms.Textarea(attrs={'rows': 2, 'placeholder': 'コメント'}),
         }
         labels = {
             'in_out': '現在のステータス',
